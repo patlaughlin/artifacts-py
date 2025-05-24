@@ -16,6 +16,11 @@ class Config:
         self.character_name = os.getenv('CHARACTER_NAME')
         self.log_level = os.getenv('LOG_LEVEL', 'INFO')
         
+        # Health management thresholds (as percentages)
+        self.health_critical = int(os.getenv('HEALTH_CRITICAL', '30'))
+        self.health_low = int(os.getenv('HEALTH_LOW', '50'))
+        self.health_fight_min = int(os.getenv('HEALTH_FIGHT_MIN', '60'))
+        
         # Validate required settings
         if not self.token:
             raise ValueError("ARTIFACTS_TOKEN not found in environment variables. Please check your .env file.")
